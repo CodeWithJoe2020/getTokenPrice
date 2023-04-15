@@ -2,7 +2,7 @@ from web3 import Web3
 from abis import TOKENLPABI, ABI
 import decimal
 from getEthPrice import ethPrice
-import config
+
 
 node = config.node
 web3 = Web3(Web3.HTTPProvider(node))
