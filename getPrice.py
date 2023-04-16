@@ -10,8 +10,6 @@ web3 = Web3(Web3.HTTPProvider(node))
 
 #print(web3.is_connected())
 
-#tokenAddress = web3.to_checksum_address('0x1f9840a85d5af5bf1d1762f925bdaddc4201f984')
-#tokenContract = web3.eth.contract(address=tokenAddress, abi=ERC20ABI)
 
 lpAddress=web3.to_checksum_address('0xA43fe16908251ee70EF74718545e4FE6C5cCEc9f')
 lpContract = web3.eth.contract(address=lpAddress, abi=LPABI)
