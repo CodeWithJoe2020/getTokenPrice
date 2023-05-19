@@ -10,13 +10,8 @@ web3 = Web3(Web3.HTTPProvider(node))
 
 #print(web3.is_connected())
 
-
-lpAddress=web3.to_checksum_address('0xA43fe16908251ee70EF74718545e4FE6C5cCEc9f')
-lpContract = web3.eth.contract(address=lpAddress, abi=LPABI)
-
-
-
-def token_price():
+def token_price(lpAddress):
+    lpContract = web3.eth.contract(address=lpAddress, abi=LPABI)
     # Get the addresses of the two tokens in the pair
     token0, token1 = lpContract.functions.token0().call(), lpContract.functions.token1().call()
     print("Token0:", token0)
@@ -47,5 +42,5 @@ def usd_price():
     usdPrice= float(token_price()) * float(getEthPrice())
     return usdPrice
 
-print(token_price())
+print(token_price(web3.to_checksum_address('0xA43fe16908251ee70EF74718545e4FE6C5cCEc9f')))
 print(usd_price())
